@@ -1,4 +1,5 @@
-from quest.back_end import change_the_stats_lections, change_the_stats_evening, giving_rules, intro, end_of_intro
+from quest.back_end import change_the_stats_lections, change_the_stats_evening
+from quest.comunication_back_end import giving_rules, intro, end_of_intro, get_choice
 from quest.utility import lessons_game_test, stats_keeping, evening_game_test, endgame_text
 
 
@@ -12,12 +13,14 @@ def processing_game():
     counter = 10
     stats = stats_keeping()
     while counter > 0:
+        # day
         lessons_game_test(counter, stats)
-        choice_1 = input("\nВаш выбор: ")
+        choice_1 = get_choice("day")
         stats = change_the_stats_lections(choice_1, stats[0], stats[1], stats[2], stats[3])
 
+        # evening
         evening_game_test(stats)
-        choice_2 = input("\nВаш выбор: ")
+        choice_2 = get_choice("evening")
         stats = change_the_stats_evening(choice_2, stats[0], stats[1], stats[2], stats[3])
 
         counter = counter - 1

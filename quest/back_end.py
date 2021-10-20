@@ -1,44 +1,17 @@
-from quest.utility import rules
-
-
-def intro() -> None:
-    print("Добро пожаловать в игру '10 DAYS'!"
-          "\nПосле долгих мучений по сдаче ЕГЭ, поступления и надежд пройти вы находите себя в списках зачисленных."
-          "\nСамое время прийти в себя и вспомнить свое имя!")
-    players_name = getting_name()
-    print("\nОтлично,", players_name + ",", "давайте немного поговорим о правилах...\n")
-
-
-def giving_rules() -> None:
-    rules()
-    global_flag = True
-    while global_flag:
-        flag = True
-        answer = None
-        while flag:
-            answer = input("\nНу, что же, вам все понятно? ")
-            if answer != "Да" and answer != "Нет" and answer != "да" and answer != "нет" \
-                    and answer != "ДА" and answer != "НЕТ":
-                print("Я вас немножко не понял!")
-            else:
-                flag = False
-        if answer == "Да" or answer == "да" or answer == "ДА":
-            print("Тогда мы начинаем!")
-            global_flag = False
+def check_choice(type_, choice_) -> bool:
+    if type_ == "day":
+        if choice_.upper() == "А" or choice_.upper() == "Б" or choice_.upper() == "В" or choice_.upper() == "Г":
+            return True
         else:
-            print("\nПовторим правила!\n")
-            rules()
+            return False
+    elif type_ == "evening":
+        if choice_.upper() == "А" or choice_.upper() == "Б" or choice_.upper() == "В":
+            return True
+        else:
+            return False
+    else:
+        return False
 
-
-def end_of_intro() -> None:
-    print("\nТяжелая учеба заставила вас потерять счет времени... "
-          "\nСейчас некий день некоей недели..."
-          "\nВам только хочется спать. Ничто больше не движет вашим первобытным мозгом..."
-          "\nВы входите в университет.")
-
-
-def getting_name() -> str:
-    return input("Введите свое имя: ")
 
 
 def change_the_stats_lections(the_choice, food, tiredness, points_to_autopass, knowledge) -> list:
