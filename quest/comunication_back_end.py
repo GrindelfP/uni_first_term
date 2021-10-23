@@ -17,7 +17,7 @@ def giving_rules() -> None:
         flag = True
         answer = None
         while flag:
-            answer = input("\nНу, что же, вам все понятно? ")
+            answer = input("\nНу, что же, вам все понятно? (да/нет) ")
             if answer.upper() != "ДА" and answer.upper() != "НЕТ":
                 print("Я вас немножко не понял!")
             else:
