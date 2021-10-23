@@ -1,6 +1,6 @@
 from quest.back_end import change_the_stats_lections, change_the_stats_evening, death_check
 from quest.comunication_back_end import giving_rules, intro, end_of_intro, get_choice
-from quest.utility import lessons_game_test, stats_keeping, evening_game_test, endgame_text, death_text
+from quest.utility import day_game_test, stats_keeping, evening_game_test, endgame_text, death_text
 
 
 def greetings() -> None:
@@ -15,16 +15,16 @@ def processing_game():
     death = "no"
     while counter > 0:
         # day
-        if death_check(stats[0], stats[1]) == "starved" or death_check(stats[0], stats[1]) == "tired":
+        if death_check(stats[0], stats[1]) != "alive":
             death_text(death_check(stats[0], stats[1]))
             death = "yes"
             break
-        lessons_game_test(counter, stats)
+        day_game_test(counter, stats)
         choice_1 = get_choice("day")
         stats = change_the_stats_lections(choice_1, stats[0], stats[1], stats[2], stats[3])
 
         # evening
-        if death_check(stats[0], stats[1]) == "starved" or death_check(stats[0], stats[1]) == "tired":
+        if death_check(stats[0], stats[1]) != "alive":
             death_text(death_check(stats[0], stats[1]))
             death = "yes"
             break

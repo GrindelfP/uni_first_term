@@ -1,3 +1,6 @@
+from random import randint
+
+
 def stats_keeping() -> list:
     return [80, 30, 0, 0]
 
@@ -38,7 +41,7 @@ def rules() -> None:
           "Как он повлияет на ваше состояние? Вам подскажут!")
 
 
-def lessons_game_test(counter_, stats_) -> None:
+def day_game_test(counter_, stats_) -> None:
     print(
         "\nВы не помните число (впрочем как и всегда), но что-то внутри подсказывает вам, что сессия близко. До нее "
         "всего ничего дней...",
@@ -71,17 +74,22 @@ def death_text(type_of_death) -> None:
         print("Вы умираете от переутомления. В следующей жизни отдыхайте побольше!")
 
 
+def autopass(bottom) -> int:
+    return randint(bottom, 100)
+
+
 def results_of_the_game(final_stats):
-    if final_stats[2] > 80:
+    if autopass(final_stats[2]) > 80:
         return "\nВы отлично справились! Вы сдали сессию автоматом!"
-    if final_stats[3] >= 85:
-        return "\nВы отлично справились! Вы сдали сессию на 5!"
-    elif 70 <= final_stats[3] < 85:
-        return "\nВы справились! Вы сдали сессию на 4!"
-    elif 60 <= final_stats[3] < 70:
-        return "\nМогло быть и хуже... Вы сдали сессию на 3!"
     else:
-        return "\nВы не сдали сессию и были отчислены..."
+        if final_stats[3] >= 85:
+            return "\nВы отлично справились! Вы сдали сессию на 5!"
+        elif 70 <= final_stats[3] < 85:
+            return "\nВы справились! Вы сдали сессию на 4!"
+        elif 60 <= final_stats[3] < 70:
+            return "\nМогло быть и хуже... Вы сдали сессию на 3!"
+        else:
+            return "\nВы не сдали сессию и были отчислены..."
 
 
 def endgame_text(stats, death_status) -> None:

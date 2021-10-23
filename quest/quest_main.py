@@ -4,4 +4,4 @@ greetings()
 processing_game()
 
 # TODO: UI
-# TODO: different agreement answers
+# TODO: reformat stats changing part (probably turn into a class mode)

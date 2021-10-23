@@ -17,12 +17,13 @@ def giving_rules() -> None:
         flag = True
         answer = None
         while flag:
-            answer = input("\nНу, что же, вам все понятно? (да/нет) ")
-            if answer.upper() != "ДА" and answer.upper() != "НЕТ":
+            answer = input("\nНу, что же, вам все понятно? ")
+            if answer.upper() != "ДА" and answer.upper() != "OK" and answer.upper() != "YES" \
+                    and answer.upper() != "НЕТ" and answer.upper() != "NO":
                 print("Я вас немножко не понял!")
             else:
                 flag = False
-        if answer.upper() == "ДА":
+        if answer.upper() == "ДА" or answer.upper() == "OK" or answer.upper() == "YES":
             print("Тогда мы начинаем!")
             global_flag = False
         else:
