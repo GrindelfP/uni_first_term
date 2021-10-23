@@ -79,7 +79,7 @@ def autopass(bottom) -> int:
 
 
 def results_of_the_game(final_stats):
-    if autopass(final_stats[2]) > 80:
+    if autopass(final_stats[2]) > 90:
         return "\nВы отлично справились! Вы сдали сессию автоматом!"
     else:
         if final_stats[3] >= 85:
