@@ -43,9 +43,11 @@ if order_check(sequence):
     sigma = 0
     for element_sigma in sequence:
         sigma = sigma + element_sigma
-    print("Результат:", sigma)
+        result = sigma
 else:
     product = 1
     for element_product in sequence:
         product = product * element_product
-    print("Результат:", product)
+        result = product
+
+print("Результат:", product)
