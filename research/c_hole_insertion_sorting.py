@@ -12,8 +12,3 @@ def hole_insertion_sort(input_list) -> tuple:
             input_list[hole + 1], input_list[hole] = input_list[hole], input_list[hole + 1]
             move += 1
     return input_list, comp, move
-
-
-a = [33, 40, 3, 6, 35]
-print(hole_insertion_sort(a))
-

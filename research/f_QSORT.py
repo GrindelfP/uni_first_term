@@ -4,7 +4,6 @@ def q_sort(input_list, start, finish) -> tuple:
     middle = input_list[(start + finish)//2]
     left = start
     right = finish
-    comp += 1
     while left < right:
         comp += 3
         while input_list[left] < middle:
@@ -30,7 +29,3 @@ def q_sort(input_list, start, finish) -> tuple:
         comp += stat[1]
 
     return input_list, comp, move
-
-
-a = [33, 40, 3, 6, 35]
-print(q_sort(a, 0, len(a)-1))

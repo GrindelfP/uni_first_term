@@ -9,8 +9,3 @@ def select_sorting(input_list) -> tuple:
                 input_list[i], input_list[j] = input_list[j], input_list[i]
 
     return input_list, comp, move
-
-
-a = [33, 40, 3, 6, 35]
-print(select_sorting(a))
-

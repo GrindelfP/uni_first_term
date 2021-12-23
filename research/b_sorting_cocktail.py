@@ -30,7 +30,3 @@ def cocktail_sort(input_list) -> tuple:
         start_point += 1
 
     return input_list, comp, move
-
-
-a = [33, 40, 3, 6, 35]
-print(cocktail_sort(a))
