@@ -5,7 +5,7 @@ def cocktail_sort(input_list) -> tuple:
     start_point = 0
     end_point = len(input_list) - 1
 
-    while movements_done:
+    while movements_done and start_point < end_point:
         movements_done = False
 
         for i in range(start_point, end_point):
